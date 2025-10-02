@@ -5,6 +5,7 @@ from django.shortcuts import redirect,render
 
 
 def signup(request):
+    form = UserCreationForm()
     if request.method == 'POST':
         form=UserCreationForm(request.POST)
         if form.is_valid():
@@ -14,4 +15,4 @@ def signup(request):
             return redirect('listing_list')
         else:
             form=UserCreationForm()
-        return render(request,'auth/signup.html',{'form':form})
+    return render(request,'auth/signup.html',{'form':form})

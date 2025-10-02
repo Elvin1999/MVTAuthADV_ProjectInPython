@@ -40,8 +40,8 @@ class Listing(models.Model):
         ordering = ['published_at','-created_at']
         indexes=[models.Index(fields=['status','brand','model','city','price'])]
 
-    def __str__(self):
-        return f'{self.title} {self.status}'
+    # def __str__(self):
+    #     return f'{self.title} {self.status}'
 
     def get_absolute_url(self):
         return reverse('listing_detail',args=[self.slug])

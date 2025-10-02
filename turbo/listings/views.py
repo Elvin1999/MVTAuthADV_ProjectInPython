@@ -40,8 +40,8 @@ def listing_list(request):
     return render(request,'listings/listing_list.html',context)
 
 def listing_detail(request,slug):
-    listing=get_object_or_404(Listing,slug=slug,status=ListingStatus.APPROVED)
-    return render(request,'listings/listing_detail.html',{'listing:':listing})
+    listing=get_object_or_404(Listing,slug=slug)
+    return render(request,'listings/listing_detail.html',{'listing':listing})
 
 
 @login_required
@@ -94,4 +94,4 @@ def my_listings(request):
         qs=qs.filter(status=status)
     if q:
         qs=qs.filter(Q(title__icontains=q) | Q(description__icontains=q))
-    return render(request,'listings/my_listing.html',{'listings':qs,'q':q,'status':status})
+    return render(request,'listings/my_listings.html',{'listings':qs,'q':q,'status':status})
