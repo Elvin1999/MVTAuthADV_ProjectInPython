@@ -2,7 +2,7 @@ from django.utils import timezone
 
 from django.contrib import admin
 
-from turbo.listings.models import Listing, ListingStatus
+from .models import Listing, ListingStatus
 
 
 # Register your models here.
@@ -12,7 +12,7 @@ class ListingAdmin(admin.ModelAdmin):
     list_display = ('id','title','owner','price','status','published_at','created_at')
     list_filter = ('status','brand','city','year')
     search_fields = ('title','description','brand','model','city','owner__email','owner__username')
-    autocomplete_fields = ('owner')
+    autocomplete_fields = ('owner',)
     readonly_fields = ('created_at','updated_at','published_at','slug')
 
     actions=['approve_listings','reject_listings']

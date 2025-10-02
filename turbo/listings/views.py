@@ -3,8 +3,8 @@ from django.contrib import messages
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404,redirect
 
-from turbo.listings.forms import ListingForm
-from turbo.listings.models import Listing, ListingStatus, STATUS_CHOICES
+from .forms import ListingForm
+from .models import Listing, ListingStatus, STATUS_CHOICES
 
 
 # Create your views here.
