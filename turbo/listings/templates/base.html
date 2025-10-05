@@ -11,7 +11,13 @@
     {% if user.is_authenticated %}
       <a href="{% url 'my_listings' %}">My Advertisement</a>
       <a href="{% url 'listing_create' %}">New Advertisement</a>
-      <a href="{% url 'logout' %}">Log Out</a>
+{#      <a href="{% url 'logout' %}">Log Out</a>#}
+        <form action="{% url 'logout' %}" method="post" style="display: inline">
+            {% csrf_token %}
+            <button type="submit" style="background: none;border:none;color:red;cursor:pointer">
+                Logout
+            </button>
+        </form>
     {% else %}
       <a href="{% url 'login' %}">Sign IN</a>
       <a href="{% url 'signup' %}">SIGN UP</a>
